@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: paascloud-discovery
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/paascloud/paascloud-config-repo
+          username:
+          password:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+encrypt:
+ key-store:
+   location: classpath:/server.jks
+   password: paascloud-storepass
+   alias: paascloud-key-store
+   secret: paascloud-keypass
