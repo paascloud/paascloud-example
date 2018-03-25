@@ -1,7 +1,5 @@
-> 开源是一种态度，分享是一种精神！
-
 ```
-从发表springcloud到现在已经有一个星期的时间，很多朋友反映服务跑不起来，这里给大家详细的介绍一下配置中心的加解密，一个星期的时间，paascloud加了500+的星星，上了github本周加星榜，感谢大家的支持，同时也使笔者有了坚持下去的力量，这里谢谢的大家的支持
+从发表springcloud到现在已经有一个星期的时间，很多朋友反映服务跑不起来，这里给大家详细的介绍一下配置中心的加解密，一个星期的时间，paascloud加了500+的星星，上了github本周加星榜，同时也使笔者有了坚持下去的力量，这里谢谢的大家的支持
 ```
 ![这里写图片描述](http://img.paascloud.net/paascloud/doc/github_20180325225716.png)
 
@@ -45,7 +43,7 @@ encrypt:
 ## 使用
 
 这里说明一下，根据笔者经验如果配置中心使用了加密，类似这样
-	
+
 ```yml
 spring:
   cloud:
@@ -66,7 +64,7 @@ spring:
 paascloud-encrypt-eureka
 paascloud-encrypt-discovery
 ```
-	
+
 ### 加解密操作
 加密
 
@@ -99,13 +97,13 @@ rabbitmq:
     password: '{cipher}你的密文'
 ```
 
-## 后记
+## 示例代码
 
 ```
-开源是一种态度，分享是一种精神！
+https://github.com/paascloud/paascloud-example
 ```
+
 
 ## 我的开源项目
 [github](https://github.com/paascloud/paascloud-master)： https://github.com/paascloud/paascloud-master
-
 [码云](https://gitee.com/paascloud/paascloud-master)：https://gitee.com/paascloud/paascloud-master
