@@ -17,5 +17,6 @@
 
   <modules>
     <module>paascloud-example-encrypt</module>
+    <module>paascloud-example-springboot</module>
   </modules>
 </project>

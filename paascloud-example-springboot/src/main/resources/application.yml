@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/paascloud_uac?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: 123456
+mybatis:
+  type-aliases-package: com.paascloud.domain
+  mapper-locations: classpath:mapper/*.xml

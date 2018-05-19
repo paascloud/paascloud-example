@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.paascloud.mapper.PcUacUserMapper" >
+  <resultMap id="BaseResultMap" type="com.paascloud.domain.PcUacUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="mobile_no" property="mobileNo" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="user_source" property="userSource" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="last_login_location" property="lastLoginLocation" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="is_changed_pwd" property="isChangedPwd" jdbcType="SMALLINT" />
+    <result column="pwd_error_count" property="pwdErrorCount" jdbcType="SMALLINT" />
+    <result column="pwd_error_time" property="pwdErrorTime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="BIGINT" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="last_operator" property="lastOperator" jdbcType="VARCHAR" />
+    <result column="last_operator_id" property="lastOperatorId" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, version, login_name, login_pwd, salt, user_code, user_name, mobile_no, email, 
+    status, user_source, type, last_login_ip, last_login_location, remark, last_login_time, 
+    is_changed_pwd, pwd_error_count, pwd_error_time, creator, creator_id, created_time, 
+    last_operator, last_operator_id, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pc_uac_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pc_uac_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.paascloud.domain.PcUacUser" >
+    insert into pc_uac_user (id, version, login_name, 
+      login_pwd, salt, user_code, 
+      user_name, mobile_no, email, 
+      status, user_source, type, 
+      last_login_ip, last_login_location, remark, 
+      last_login_time, is_changed_pwd, pwd_error_count, 
+      pwd_error_time, creator, creator_id, 
+      created_time, last_operator, last_operator_id, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{version,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{loginPwd,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{mobileNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{userSource,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginLocation,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{isChangedPwd,jdbcType=SMALLINT}, #{pwdErrorCount,jdbcType=SMALLINT}, 
+      #{pwdErrorTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{creatorId,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{lastOperator,jdbcType=VARCHAR}, #{lastOperatorId,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.paascloud.domain.PcUacUser" >
+    insert into pc_uac_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="loginName != null" >
+        login_name,
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="mobileNo != null" >
+        mobile_no,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="userSource != null" >
+        user_source,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip,
+      </if>
+      <if test="lastLoginLocation != null" >
+        last_login_location,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time,
+      </if>
+      <if test="isChangedPwd != null" >
+        is_changed_pwd,
+      </if>
+      <if test="pwdErrorCount != null" >
+        pwd_error_count,
+      </if>
+      <if test="pwdErrorTime != null" >
+        pwd_error_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="lastOperator != null" >
+        last_operator,
+      </if>
+      <if test="lastOperatorId != null" >
+        last_operator_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null" >
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNo != null" >
+        #{mobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userSource != null" >
+        #{userSource,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginLocation != null" >
+        #{lastLoginLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isChangedPwd != null" >
+        #{isChangedPwd,jdbcType=SMALLINT},
+      </if>
+      <if test="pwdErrorCount != null" >
+        #{pwdErrorCount,jdbcType=SMALLINT},
+      </if>
+      <if test="pwdErrorTime != null" >
+        #{pwdErrorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperator != null" >
+        #{lastOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="lastOperatorId != null" >
+        #{lastOperatorId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.paascloud.domain.PcUacUser" >
+    update pc_uac_user
+    <set >
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNo != null" >
+        mobile_no = #{mobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userSource != null" >
+        user_source = #{userSource,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginLocation != null" >
+        last_login_location = #{lastLoginLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isChangedPwd != null" >
+        is_changed_pwd = #{isChangedPwd,jdbcType=SMALLINT},
+      </if>
+      <if test="pwdErrorCount != null" >
+        pwd_error_count = #{pwdErrorCount,jdbcType=SMALLINT},
+      </if>
+      <if test="pwdErrorTime != null" >
+        pwd_error_time = #{pwdErrorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperator != null" >
+        last_operator = #{lastOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="lastOperatorId != null" >
+        last_operator_id = #{lastOperatorId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.paascloud.domain.PcUacUser" >
+    update pc_uac_user
+    set version = #{version,jdbcType=INTEGER},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      mobile_no = #{mobileNo,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      user_source = #{userSource,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      last_login_location = #{lastLoginLocation,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      is_changed_pwd = #{isChangedPwd,jdbcType=SMALLINT},
+      pwd_error_count = #{pwdErrorCount,jdbcType=SMALLINT},
+      pwd_error_time = #{pwdErrorTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      last_operator = #{lastOperator,jdbcType=VARCHAR},
+      last_operator_id = #{lastOperatorId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into pc_uac_user (id, 
+      version, login_name, login_pwd, 
+      salt, user_code, user_name, 
+      mobile_no, email, status, 
+      user_source, type, last_login_ip, 
+      last_login_location, remark, last_login_time, 
+      is_changed_pwd, pwd_error_count, 
+      pwd_error_time, creator, creator_id, 
+      created_time, last_operator, 
+      last_operator_id, update_time)
+    values 
+    <foreach collection="list" item="item" index="index" separator=","> 
+( #{item.id,jdbcType=BIGINT}, 
+      #{item.version,jdbcType=INTEGER}, #{item.loginName,jdbcType=VARCHAR}, #{item.loginPwd,jdbcType=VARCHAR}, 
+      #{item.salt,jdbcType=VARCHAR}, #{item.userCode,jdbcType=VARCHAR}, #{item.userName,jdbcType=VARCHAR}, 
+      #{item.mobileNo,jdbcType=VARCHAR}, #{item.email,jdbcType=VARCHAR}, #{item.status,jdbcType=VARCHAR}, 
+      #{item.userSource,jdbcType=VARCHAR}, #{item.type,jdbcType=VARCHAR}, #{item.lastLoginIp,jdbcType=VARCHAR}, 
+      #{item.lastLoginLocation,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR}, #{item.lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{item.isChangedPwd,jdbcType=SMALLINT}, #{item.pwdErrorCount,jdbcType=SMALLINT}, 
+      #{item.pwdErrorTime,jdbcType=TIMESTAMP}, #{item.creator,jdbcType=VARCHAR}, #{item.creatorId,jdbcType=BIGINT}, 
+      #{item.createdTime,jdbcType=TIMESTAMP}, #{item.lastOperator,jdbcType=VARCHAR}, 
+      #{item.lastOperatorId,jdbcType=BIGINT}, #{item.updateTime,jdbcType=TIMESTAMP}) 
+   </foreach>
+  </insert>
+  <select id="selectCount" parameterType="java.util.Map" resultType="java.lang.Integer" >
+    select count(*) from pc_uac_user
+    <if test="_parameter != null" >
+      <where >
+        <if test="id != null" >
+           AND id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="version != null" >
+           AND version = #{version,jdbcType=INTEGER}
+        </if>
+        <if test="loginName != null" >
+           AND login_name = #{loginName,jdbcType=VARCHAR}
+        </if>
+        <if test="loginPwd != null" >
+           AND login_pwd = #{loginPwd,jdbcType=VARCHAR}
+        </if>
+        <if test="salt != null" >
+           AND salt = #{salt,jdbcType=VARCHAR}
+        </if>
+        <if test="userCode != null" >
+           AND user_code = #{userCode,jdbcType=VARCHAR}
+        </if>
+        <if test="userName != null" >
+           AND user_name = #{userName,jdbcType=VARCHAR}
+        </if>
+        <if test="mobileNo != null" >
+           AND mobile_no = #{mobileNo,jdbcType=VARCHAR}
+        </if>
+        <if test="email != null" >
+           AND email = #{email,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null" >
+           AND status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="userSource != null" >
+           AND user_source = #{userSource,jdbcType=VARCHAR}
+        </if>
+        <if test="type != null" >
+           AND type = #{type,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginIp != null" >
+           AND last_login_ip = #{lastLoginIp,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginLocation != null" >
+           AND last_login_location = #{lastLoginLocation,jdbcType=VARCHAR}
+        </if>
+        <if test="remark != null" >
+           AND remark = #{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginTime != null" >
+           AND last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isChangedPwd != null" >
+           AND is_changed_pwd = #{isChangedPwd,jdbcType=SMALLINT}
+        </if>
+        <if test="pwdErrorCount != null" >
+           AND pwd_error_count = #{pwdErrorCount,jdbcType=SMALLINT}
+        </if>
+        <if test="pwdErrorTime != null" >
+           AND pwd_error_time = #{pwdErrorTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="creator != null" >
+           AND creator = #{creator,jdbcType=VARCHAR}
+        </if>
+        <if test="creatorId != null" >
+           AND creator_id = #{creatorId,jdbcType=BIGINT}
+        </if>
+        <if test="createdTime != null" >
+           AND created_time = #{createdTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="lastOperator != null" >
+           AND last_operator = #{lastOperator,jdbcType=VARCHAR}
+        </if>
+        <if test="lastOperatorId != null" >
+           AND last_operator_id = #{lastOperatorId,jdbcType=BIGINT}
+        </if>
+        <if test="updateTime != null" >
+           AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+      </where>
+    </if>
+  </select>
+  <select id="selectBeans" parameterType="java.util.Map" resultMap="BaseResultMap" >
+    select id, version, login_name, login_pwd, salt, user_code, user_name, mobile_no, email, status, user_source, type, last_login_ip, last_login_location, remark, last_login_time, is_changed_pwd, pwd_error_count, pwd_error_time, creator, creator_id, created_time, last_operator, last_operator_id, update_time from pc_uac_user
+    <if test="_parameter != null" >
+      <where >
+        <if test="id != null" >
+           AND id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="version != null" >
+           AND version = #{version,jdbcType=INTEGER}
+        </if>
+        <if test="loginName != null" >
+           AND login_name = #{loginName,jdbcType=VARCHAR}
+        </if>
+        <if test="loginPwd != null" >
+           AND login_pwd = #{loginPwd,jdbcType=VARCHAR}
+        </if>
+        <if test="salt != null" >
+           AND salt = #{salt,jdbcType=VARCHAR}
+        </if>
+        <if test="userCode != null" >
+           AND user_code = #{userCode,jdbcType=VARCHAR}
+        </if>
+        <if test="userName != null" >
+           AND user_name = #{userName,jdbcType=VARCHAR}
+        </if>
+        <if test="mobileNo != null" >
+           AND mobile_no = #{mobileNo,jdbcType=VARCHAR}
+        </if>
+        <if test="email != null" >
+           AND email = #{email,jdbcType=VARCHAR}
+        </if>
+        <if test="status != null" >
+           AND status = #{status,jdbcType=VARCHAR}
+        </if>
+        <if test="userSource != null" >
+           AND user_source = #{userSource,jdbcType=VARCHAR}
+        </if>
+        <if test="type != null" >
+           AND type = #{type,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginIp != null" >
+           AND last_login_ip = #{lastLoginIp,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginLocation != null" >
+           AND last_login_location = #{lastLoginLocation,jdbcType=VARCHAR}
+        </if>
+        <if test="remark != null" >
+           AND remark = #{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginTime != null" >
+           AND last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isChangedPwd != null" >
+           AND is_changed_pwd = #{isChangedPwd,jdbcType=SMALLINT}
+        </if>
+        <if test="pwdErrorCount != null" >
+           AND pwd_error_count = #{pwdErrorCount,jdbcType=SMALLINT}
+        </if>
+        <if test="pwdErrorTime != null" >
+           AND pwd_error_time = #{pwdErrorTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="creator != null" >
+           AND creator = #{creator,jdbcType=VARCHAR}
+        </if>
+        <if test="creatorId != null" >
+           AND creator_id = #{creatorId,jdbcType=BIGINT}
+        </if>
+        <if test="createdTime != null" >
+           AND created_time = #{createdTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="lastOperator != null" >
+           AND last_operator = #{lastOperator,jdbcType=VARCHAR}
+        </if>
+        <if test="lastOperatorId != null" >
+           AND last_operator_id = #{lastOperatorId,jdbcType=BIGINT}
+        </if>
+        <if test="updateTime != null" >
+           AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+      </where>
+    </if>
+    <if test="STARTNUMBER != null" >
+       limit  #{STARTNUMBER},#{LIMITNUMBER}
+    </if>
+  </select>
+</mapper>
